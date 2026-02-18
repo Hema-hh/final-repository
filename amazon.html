@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Cart</title>
+</head>
+<body>
+
+<h2>Product: Bag</h2>
+<p>Price: ₹500</p>
+
+<button onclick="decrease()">-</button>
+<span id="qty">1</span>
+<button onclick="increase()">+</button>
+
+<p>Total: ₹<span id="total">500</span></p>
+
+<script>
+
+let quantity = 1;
+let price = 500;
+
+function increase() {
+    quantity = quantity + 1;
+    document.getElementById("qty").innerHTML = quantity;
+    document.getElementById("total").innerHTML = quantity * price;
+}
+
+function decrease() {
+    if (quantity > 1) {
+        quantity = quantity - 1;
+        document.getElementById("qty").innerHTML = quantity;
+        document.getElementById("total").innerHTML = quantity * price;
+    }
+}
+
+</script>
+
+</body>
+</html>
