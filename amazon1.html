@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Amazon Cart</title>
+</head>
+<body>
+
+<h2>Product: Shoes</h2>
+<p>Price: ₹800</p>
+
+<!-- Add to Cart Button -->
+<button id="addBtn" onclick="addToCart()">Add to Cart</button>
+
+<!-- Quantity Section (Hidden First) -->
+<div id="cartControls" style="display:none;">
+    <button onclick="decrease()">-</button>
+    <span id="qty">1</span>
+    <button onclick="increase()">+</button>
+</div>
+
+<script>
+
+let quantity = 1;
+
+function addToCart() {
+    document.getElementById("addBtn").style.display = "none";
+    document.getElementById("cartControls").style.display = "block";
+}
+
+function increase() {
+    quantity++;
+    document.getElementById("qty").innerHTML = quantity;
+}
+
+function decrease() {
+    if (quantity > 1) {
+        quantity--;
+        document.getElementById("qty").innerHTML = quantity;
+    } else {
+        // If quantity becomes 0, show Add button again
+        document.getElementById("cartControls").style.display = "none";
+        document.getElementById("addBtn").style.display = "block";
+        quantity = 1;
+        document.getElementById("qty").innerHTML = quantity;
+    }
+}
+
+</script>
+
+</body>
+</html>
